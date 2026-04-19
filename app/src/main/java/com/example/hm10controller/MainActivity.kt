@@ -1,21 +1,54 @@
 package com.example.hm10controller
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothAdapter.getDefaultAdapter
 import android.bluetooth.BluetoothDevice
+import android.bluetooth.le.BluetoothLeScanner
+import android.content.ComponentName
+import android.content.Intent
+import android.content.ServiceConnection
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.SeekBar
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import android.os.Build
 import androidx.core.content.ContextCompat
+import android.os.IBinder
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
+    private var bluetoothService: BluetoothLeService? = null
+
+    private val serviceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            // Перетворюємо IBinder на наш LocalBinder
+            val binder = service as? BluetoothLeService.LocalBinder
+            bluetoothService = binder?.getService()
+
+            val address = intent.getStringExtra("device_address")
+            if (address != null && bluetoothService != null) {
+                bluetoothService?.connect(address)
+            }
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {
+            bluetoothService = null
+        }
+    }
+    var bluetoothAdapter: BluetoothAdapter = getDefaultAdapter()
+    var bluetoothLeScanner: BluetoothLeScanner? = bluetoothAdapter.getBluetoothLeScanner()
     private lateinit var bluetoothManager: BluetoothManager
     private lateinit var handler: Handler
     private var connectedDevice: BluetoothDevice? = null
@@ -67,6 +100,8 @@ class MainActivity : AppCompatActivity() {
         initViews()
         setupListeners()
         checkPermissionsAndEnableScan()
+        val gattServiceIntent = Intent(this, BluetoothLeService::class.java)
+        bindService(gattServiceIntent, serviceConnection, BIND_AUTO_CREATE)
     }
 
     private fun initViews() {
@@ -230,6 +265,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Знайдено ${deviceNames.size} пристроїв", Toast.LENGTH_SHORT).show()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun connectToSelectedDevice() {
         val position = spinnerDevices.selectedItemPosition
         if (position == AdapterView.INVALID_POSITION) {
@@ -243,7 +279,7 @@ class MainActivity : AppCompatActivity() {
         Thread {
             val success = try {
                 bluetoothManager.connect(connectedDevice!!)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 false
             }
             runOnUiThread {
@@ -301,6 +337,7 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun processIncoming(data: String) {
         when {
             data.contains("danger") -> tvAlert.text = "УВАГА: ГАЗ!"
