@@ -1,12 +1,17 @@
 # Gradle files
 .gradle/
 build/
+release/
+gradle-app.setting
+!gradle-wrapper.jar
 
 # Local configuration file (sdk path, etc)
 local.properties
 
 # Log/OS Files
 *.log
+.DS_Store
+Thumbs.db
 
 # Android Studio generated files and folders
 captures/
@@ -32,3 +37,8 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Kotlin
+*.kotlin_module
+_site/
+.kotlin/
