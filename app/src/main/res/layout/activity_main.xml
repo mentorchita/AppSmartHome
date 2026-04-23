@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -14,21 +16,23 @@
             android:id="@+id/tvStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Не підключено"
+            android:text="@string/not_connect_ua"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <!-- Scan Button -->
         <Button
             android:id="@+id/btnScan"
+			style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сканувати пристрої"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:text="@string/scan_ua" />
 
         <!-- Device List -->
         <Spinner
             android:id="@+id/spinnerDevices"
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -36,6 +40,7 @@
 
         <!-- Connect / Disconnect -->
         <LinearLayout
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -43,166 +48,315 @@
 
             <Button
                 android:id="@+id/btnConnect"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Підключитися"
-                android:enabled="false" />
+                android:text="@string/connect_ua"
+                android:enabled="false"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnDisconnect"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="Відключитися"
+                android:text="@string/disconnect_ua"
                 android:enabled="false" />
         </LinearLayout>
 
         <!-- === УПРАВЛІННЯ === -->
         <TextView
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Управління"
+            android:text="@string/management_ua"
             android:textStyle="bold"
             android:layout_marginTop="24dp" />
 
         <!-- LED 13 -->
-        <TextView android:text="LED 13" android:layout_marginTop="16dp" android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <LinearLayout android:orientation="horizontal"
+        <TextView
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:text="@string/led_13"
+            android:textColor="#00796B" />
+
+        <LinearLayout
+            style="?android:attr/buttonBarButtonStyle"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <Button android:id="@+id/btnLedOn" android:text="Увімкнути" android:layout_weight="1"
+            <Button android:id="@+id/btnLedOn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/enable_ua"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-            <Button android:id="@+id/btnLedOff" android:text="Вимкнути" android:layout_weight="1" android:layout_marginStart="8dp"
+
+            <Button
+                android:id="@+id/btnLedOff"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="@string/disable_ua"
+                tools:ignore="DuplicateSpeakableTextCheck" />
         </LinearLayout>
 
         <!-- Реле -->
-        <TextView android:text="Реле" android:layout_marginTop="16dp"
+        <TextView android:text="@string/releay_ua" android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <LinearLayout android:orientation="horizontal"
+        <LinearLayout
+            style="?android:attr/buttonBarStyle"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <Button android:id="@+id/btnRelayOn" android:text="Увімкнути"
+
+            <Button
+                android:id="@+id/btnRelayOn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/en_ua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <Button android:id="@+id/btnRelayOff" android:text="Вимкнути" android:layout_marginStart="8dp"
+
+            <Button
+                android:id="@+id/btnRelayOff"
+                style="?android:attr/buttonBarStyle"
+                android:text="@string/dis_ua" android:layout_marginStart="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+     <!-- Охорона -->
+        <TextView
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/sec_ua"
+            android:textColor="#00796B" />
+
+        <LinearLayout
+            style="?android:attr/buttonBarButtonStyle"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnAlarmArm"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔒 Під охорону"
+                android:textColor="#00796B"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+ 
+    <Button
+        android:id="@+id/btnAlarmDisarm"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sec_off_ua"
+        android:enabled="false" />
+        </LinearLayout>
+
         <!-- Серво 1 -->
-        <TextView android:text="Серво 1 (0-180°)" android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <SeekBar android:id="@+id/seekServo1" android:max="180"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button android:id="@+id/btnServo1Set" android:text="Встановити"
+        <TextView android:text="@string/servo_1_0_180_ua" android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <SeekBar
+            android:id="@+id/seekServo1"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:max="180" />
+
+        <Button
+            android:id="@+id/btnServo1Set"
+			style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_ua1"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
         <!-- Серво 2 -->
-        <TextView android:text="Серво 2 (0-180°)" android:layout_marginTop="16dp"
+        <TextView
+            style="?android:attr/buttonBarStyle"
+            android:text="@string/servo_2_0_180_ua"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <SeekBar android:id="@+id/seekServo2" android:max="180"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button android:id="@+id/btnServo2Set" android:text="Встановити"
+
+        <SeekBar
+            android:id="@+id/seekServo2"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="373dp"
+            android:layout_height="wrap_content"
+            android:max="180" />
+
+        <Button
+            android:id="@+id/btnServo2Set"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/set_ua2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <!-- Вентилятор -->
-        <TextView android:text="Вентилятор (0-255)" android:layout_marginTop="16dp"
+        <TextView android:text="@string/fan_0_255_ua" android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <SeekBar android:id="@+id/seekFan" android:max="255"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <LinearLayout android:orientation="horizontal"
+
+        <SeekBar
+            android:id="@+id/seekFan"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:max="255" />
+
+        <LinearLayout
+            style="?android:attr/buttonBarButtonStyle"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <Button android:id="@+id/btnFanSet" android:text="Встановити" android:layout_weight="1"
+            <Button android:id="@+id/btnFanSet" 
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:text="@string/set_ua" 
+			    android:layout_weight="1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button android:id="@+id/btnFanStop" android:text="Стоп" android:layout_weight="1" android:layout_marginStart="8dp"
+                android:layout_height="wrap_content"
+                tools:ignore="ButtonStyle" />
+            <Button android:id="@+id/btnFanStop"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/stop_ua"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- LED PWM -->
-        <TextView android:text="LED PWM (0-255)" android:layout_marginTop="16dp"
+        <TextView
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/led_pwm_0_255"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <SeekBar android:id="@+id/seekLedPwm" android:max="255"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button android:id="@+id/btnLedPwmSet" android:text="Встановити"
+
+        <SeekBar
+            android:id="@+id/seekLedPwm"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:max="255" />
+        <Button android:id="@+id/btnLedPwmSet" 
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/set_ua"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
 
         <!-- Музика -->
-        <TextView android:text="Музика" android:layout_marginTop="16dp"
+        <TextView
+            style="?android:attr/buttonBarStyle"
+            android:text="@string/music_ua"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <LinearLayout android:orientation="horizontal"
+
+        <LinearLayout
+            style="?android:attr/buttonBarButtonStyle"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <Button android:id="@+id/btnMusic1" android:text="Birthday" android:layout_weight="1"
+
+            <Button
+                android:id="@+id/btnMusic1"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/birthday"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <Button android:id="@+id/btnMusic2" android:text="Ode to Joy" android:layout_weight="1" android:layout_marginStart="8dp"
+
+            <Button
+                android:id="@+id/btnMusic2"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/ode_to_joy" 
+				android:layout_weight="1" 
+				android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <Button android:id="@+id/btnMusicStop" android:text="Стоп" android:layout_weight="1" android:layout_marginStart="8dp"
+            <Button android:id="@+id/btnMusicStop" 
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:text="@string/stop1_ua" 
+				android:layout_weight="1" 
+				android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Датчики -->
-        <TextView android:text="Датчики" android:layout_marginTop="24dp" android:textStyle="bold"
+        <TextView android:text="@string/sensors_ua" android:layout_marginTop="24dp" android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView android:id="@+id/tvGas" android:text="Газ: -"
+        <TextView android:id="@+id/tvGas" android:text="@string/gaz_ua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView android:id="@+id/tvLight" android:text="@string/ligth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView android:id="@+id/tvSoil" android:text="Ґрунт: -"
+        <TextView android:id="@+id/tvSoil" android:text="@string/Soil_ua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView android:id="@+id/tvWater" android:text="Вода: -"
+        <TextView android:id="@+id/tvWater" android:text="@string/water_ua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView android:id="@+id/tvAlert" android:text="" android:textColor="#D32F2F"
+        <TextView android:id="@+id/tvAlert"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="" android:textColor="#D32F2F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <Button android:id="@+id/btnRefresh" android:text="Оновити датчики" android:layout_marginTop="16dp"
+        <Button android:id="@+id/btnRefresh"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/upd_sensor_ua"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <!-- Пароль Морзе -->
-        <TextView android:text="Пароль Морзе" android:layout_marginTop="24dp" android:textStyle="bold"
+        <TextView
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/morze_ua"
+            android:layout_marginTop="24dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <LinearLayout android:orientation="horizontal"
+
+        <LinearLayout
+            style="?android:attr/buttonBarButtonStyle"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <Button android:id="@+id/btnDot" android:text="." android:layout_weight="1"
+
+            <Button
+                android:id="@+id/btnDot"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/dot" android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <Button android:id="@+id/btnDash" android:text="—" android:layout_weight="1" android:layout_marginStart="8dp"
+            <Button android:id="@+id/btnDash"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/dash" android:layout_weight="1" android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <Button android:id="@+id/btnEnter" android:text="OK" android:layout_weight="1" android:layout_marginStart="8dp"
+            <Button android:id="@+id/btnEnter"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/ok" android:layout_weight="1" android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
