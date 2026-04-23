@@ -14,7 +14,7 @@
         <!-- Bluetooth Status -->
         <TextView
             android:id="@+id/tvStatus"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/not_connect_ua"
             android:textSize="18sp"
@@ -24,7 +24,7 @@
         <Button
             android:id="@+id/btnScan"
 			style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/scan_ua" />
@@ -41,10 +41,10 @@
         <!-- Connect / Disconnect -->
         <LinearLayout
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
+            android:layout_width="414dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnConnect"
@@ -52,50 +52,62 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/connect_ua"
                 android:enabled="false"
+                android:text="@string/connect_ua"
                 tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnDisconnect"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="@string/disconnect_ua"
-                android:enabled="false" />
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="@string/disconnect_ua" />
         </LinearLayout>
 
         <!-- === УПРАВЛІННЯ === -->
         <TextView
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:text="@string/management_ua"
             android:textStyle="bold"
-            android:layout_marginTop="24dp" />
+            android:textColor="#FF5722"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
 
         <!-- LED 13 -->
         <TextView
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
             android:text="@string/led_13"
-            android:textColor="#00796B" />
+            android:textColor="#9C27B0"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
 
         <LinearLayout
             style="?android:attr/buttonBarButtonStyle"
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent">
             <Button android:id="@+id/btnLedOn"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="@string/enable_ua"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:textColor="#009688"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                tools:ignore="DuplicateSpeakableTextCheck"
+                />
 
             <Button
                 android:id="@+id/btnLedOff"
@@ -105,13 +117,22 @@
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:text="@string/disable_ua"
+                android:textAllCaps="false"
+                android:textColor="#009688"
+                android:textSize="18sp"
                 tools:ignore="DuplicateSpeakableTextCheck" />
         </LinearLayout>
 
         <!-- Реле -->
         <TextView android:text="@string/releay_ua" android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#9C27B0"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"
+            />
         <LinearLayout
             style="?android:attr/buttonBarStyle"
             android:orientation="horizontal"
@@ -127,7 +148,7 @@
 
             <Button
                 android:id="@+id/btnRelayOff"
-                style="?android:attr/buttonBarStyle"
+                style="?android:attr/buttonBarButtonStyle"
                 android:text="@string/dis_ua" android:layout_marginStart="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -140,7 +161,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/sec_ua"
-            android:textColor="#00796B" />
+            android:textColor="#9C27B0"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <LinearLayout
             style="?android:attr/buttonBarButtonStyle"
@@ -169,7 +193,11 @@
         <!-- Серво 1 -->
         <TextView android:text="@string/servo_1_0_180_ua" android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#009688"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
 
         <SeekBar
             android:id="@+id/seekServo1"
@@ -191,7 +219,11 @@
             android:text="@string/servo_2_0_180_ua"
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#009688"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
 
         <SeekBar
             android:id="@+id/seekServo2"
@@ -210,7 +242,11 @@
         <!-- Вентилятор -->
         <TextView android:text="@string/fan_0_255_ua" android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#009688"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
 
         <SeekBar
             android:id="@+id/seekFan"
@@ -266,7 +302,11 @@
             android:text="@string/music_ua"
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#009688"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
 
         <LinearLayout
             style="?android:attr/buttonBarButtonStyle"
@@ -302,22 +342,44 @@
         <!-- Датчики -->
         <TextView android:text="@string/sensors_ua" android:layout_marginTop="24dp" android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#9C27B0"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"
+            />
         <TextView android:id="@+id/tvGas" android:text="@string/gaz_ua"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#2196F3"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
         <TextView android:id="@+id/tvLight" android:text="@string/ligth"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#DB6737"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
         <TextView android:id="@+id/tvSoil" android:text="@string/Soil_ua"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#FF9800"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
         <TextView android:id="@+id/tvWater" android:text="@string/water_ua"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#3F51B5"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            tools:ignore="DuplicateSpeakableTextCheck"/>
         <TextView android:id="@+id/tvAlert"
             style="?android:attr/buttonBarButtonStyle"
-            android:text="" android:textColor="#D32F2F"
+            android:text="@string/dot"
+            android:textColor="#D32F2F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
